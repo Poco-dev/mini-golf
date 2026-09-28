@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Космогольф — мини-гольф на краю Вселенной</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="stage">
+    <canvas id="game"></canvas>
+
+    <div id="hud" class="hidden">
+      <div class="hud-left">
+        <span class="hole-no" id="hud-hole">1/9</span>
+        <span class="hole-name" id="hud-name">—</span>
+      </div>
+      <div class="hud-right">
+        <span class="chip">Пар <b id="hud-par">2</b></span>
+        <span class="chip">Удары <b id="hud-strokes">0</b></span>
+        <span class="chip">Итог <b id="hud-total">E</b></span>
+        <button class="icon" id="btn-restart" title="Заново (R)">↺</button>
+        <button class="icon" id="btn-mute" title="Звук (M)">♪</button>
+      </div>
+    </div>
+    <div id="tip" class="hidden"></div>
+    <div id="toast"></div>
+
+    <div id="title" class="overlay">
+      <div class="panel">
+        <div class="logo">КОСМО<span>ГОЛЬФ</span></div>
+        <div class="subtitle">мини-гольф на краю Вселенной</div>
+        <ul class="features">
+          <li>🌀 Кротовые норы и чёрные дыры</li>
+          <li>🌬️ Ветер, лёд, песок и вода</li>
+          <li>🏃 Лунка, которая убегает</li>
+          <li>👻 Призрак прошлого удара подсказывает траекторию</li>
+        </ul>
+        <button class="big" id="btn-play">Играть</button>
+        <div class="best" id="best"></div>
+        <div class="help">Мышь / палец: зажми, потяни назад, отпусти · R — заново · M — звук · Esc — отмена прицела</div>
+      </div>
+    </div>
+
+    <div id="card" class="overlay hidden">
+      <div class="panel">
+        <div class="card-hole" id="card-hole">Лунка 1</div>
+        <div class="card-result" id="card-result">Пар</div>
+        <div class="card-sub" id="card-sub"></div>
+        <table class="scorecard" id="scorecard"></table>
+        <button class="big" id="btn-next">Дальше →</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/physics.js"></script>
+  <script src="js/levels.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
