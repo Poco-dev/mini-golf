@@ -185,6 +185,14 @@ button.big:active { transform: translateY(3px); box-shadow: 0 3px 0 #a4521a; }
 
 .best { margin-top: 14px; color: var(--accent2); min-height: 1.2em; }
 .help { margin-top: 12px; color: var(--muted); font-size: 13px; }
+.switch-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 800;
+}
+.switch-link:hover { text-decoration: underline; }
 
 .card-hole { color: var(--muted); font-size: 16px; }
 .card-result {

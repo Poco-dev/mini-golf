@@ -1,0 +1,85 @@
+#stage3d { position: fixed; inset: 0; }
+#stage3d canvas { width: 100%; height: 100%; display: block; touch-action: none; cursor: grab; }
+#stage3d canvas:active { cursor: grabbing; }
+
+.logo .three-d {
+  font-size: 0.55em;
+  vertical-align: super;
+  background: linear-gradient(180deg, #7df9c1, #3dc8ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+#clubs {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: flex;
+  gap: 8px;
+}
+.club {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 92px;
+  padding: 8px 10px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(10, 14, 36, 0.75);
+  color: var(--muted);
+  font-family: 'Russo One', sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+.club small { font-family: 'Nunito', sans-serif; font-size: 11px; opacity: 0.8; }
+.club-ico { font-size: 20px; line-height: 1; }
+.club.active {
+  color: #1b1400;
+  background: linear-gradient(180deg, var(--accent), #ff9a2e);
+  border-color: transparent;
+  box-shadow: 0 4px 18px rgba(255, 170, 40, 0.35);
+}
+
+#power {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+.power-label, .power-val {
+  font-family: 'Russo One', sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  text-shadow: 0 1px 4px #000;
+}
+.power-val { color: var(--text); min-width: 42px; text-align: center; }
+.power-bar {
+  width: 22px;
+  height: min(260px, 40vh);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  background: rgba(10, 14, 36, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+.power-fill {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 0%;
+  background: linear-gradient(0deg, #3dff9e, #ffcc3d 60%, #ff4d6d);
+  background-size: 100% min(260px, 40vh);
+  background-position: bottom;
+  border-radius: 10px;
+}
+
+@media (max-width: 640px) {
+  .club { min-width: 74px; font-size: 13px; padding: 6px 8px; }
+  #power { right: 8px; }
+}
