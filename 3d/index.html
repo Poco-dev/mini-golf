@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Космогольф 3D</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style3d.css">
+</head>
+<body>
+  <div id="stage3d">
+    <canvas id="c"></canvas>
+
+    <div id="hud" class="hidden">
+      <div class="hud-left">
+        <span class="hole-no" id="hud-hole">1/6</span>
+        <span class="hole-name" id="hud-name">—</span>
+      </div>
+      <div class="hud-right">
+        <span class="chip">Пар <b id="hud-par">2</b></span>
+        <span class="chip">Удары <b id="hud-strokes">0</b></span>
+        <span class="chip">Итог <b id="hud-total">E</b></span>
+        <button class="icon" id="btn-view" title="Обзор (V)">👁</button>
+        <button class="icon" id="btn-restart" title="Заново (R)">↺</button>
+        <button class="icon" id="btn-mute" title="Звук (M)">♪</button>
+      </div>
+    </div>
+
+    <div id="clubs" class="hidden">
+      <button class="club active" data-club="putter"><span class="club-ico">⎯</span>Паттер<small>катит</small></button>
+      <button class="club" data-club="wedge"><span class="club-ico">⟋</span>Вэдж<small>подкидывает</small></button>
+    </div>
+
+    <div id="power" class="hidden">
+      <div class="power-label">СИЛА</div>
+      <div class="power-bar"><div class="power-fill" id="power-fill"></div></div>
+      <div class="power-val" id="power-val">0%</div>
+    </div>
+
+    <div id="tip" class="hidden"></div>
+    <div id="toast"></div>
+
+    <div id="title" class="overlay">
+      <div class="panel">
+        <div class="logo">КОСМО<span>ГОЛЬФ</span> <span class="three-d">3D</span></div>
+        <div class="subtitle">летающие острова, клюшка в руках</div>
+        <ul class="features">
+          <li>🏌️ Отводи клюшку назад — чем дальше, тем сильнее удар</li>
+          <li>⛳ Две клюшки: паттер катит, вэдж подкидывает</li>
+          <li>🌙 Трамплины, мельница и лунная гравитация</li>
+          <li>🕳️ Без бортиков — прямо в открытый космос</li>
+        </ul>
+        <button class="big" id="btn-play">Играть</button>
+        <div class="best" id="best"></div>
+        <div class="help">
+          <b>Мышь/палец:</b> зажми и тяни вниз — сила, влево-вправо — прицел, отпусти — удар.<br>
+          <b>Клавиатура:</b> ←/→ или A/D — прицел, держи Пробел — сила, Q — сменить клюшку,
+          V — обзор, колесо — зум, R — заново, M — звук.
+        </div>
+        <a class="switch-link" href="../index.html">← 2D-версия</a>
+      </div>
+    </div>
+
+    <div id="card" class="overlay hidden">
+      <div class="panel">
+        <div class="card-hole" id="card-hole">Лунка 1</div>
+        <div class="card-result" id="card-result">Пар</div>
+        <div class="card-sub" id="card-sub"></div>
+        <table class="scorecard" id="scorecard"></table>
+        <button class="big" id="btn-next">Дальше →</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/three.min.js"></script>
+  <script src="../js/audio.js"></script>
+  <script src="js/physics3d.js"></script>
+  <script src="js/levels3d.js"></script>
+  <script src="js/game3d.js"></script>
+</body>
+</html>
